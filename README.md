@@ -2,8 +2,6 @@ Gemtastic
 =========
 A Ruby Gem to clean and annotate your Gemfiles.
 
-TODO: Write a gem description
-
 ## Installation
 
 Add this line to your application's Gemfile:
