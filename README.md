@@ -1,4 +1,6 @@
-# Gemtastic
+Gemtastic
+=========
+A Ruby Gem to clean and annotate your Gemfiles.
 
 TODO: Write a gem description
 
