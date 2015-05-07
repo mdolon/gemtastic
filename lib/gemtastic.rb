@@ -1,5 +1,6 @@
 module Gemtastic
   require 'gemtastic/version'
+  require 'gemtastic/annotation'
   require 'gemtastic/gem'
   require 'gemtastic/gemfile'
   require 'gemtastic/source'

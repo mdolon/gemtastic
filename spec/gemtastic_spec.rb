@@ -1,6 +1,6 @@
 require 'spec_helper'
 def gemfile_string
-  <<-EOL
+  <<-EOL.chomp
 source 'https://rubygems.org'
 
 ## This is a comment and should stay in the file
@@ -11,6 +11,43 @@ gem 'bundler'
 
 gem 'rspec' # Rspec gem
 
+gem 'rails', require: 'rails', branch: 'develop' # With options
+  EOL
+end
+
+def annotated_string
+  <<-EOL.chomp
+source 'https://rubygems.org'
+
+## This is a comment and should stay in the file
+# This is another comment
+
+# The bundler gem - my own comment
+################################################################################
+# Name:          bundler
+# Description:   Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
+# Homepage:      http://bundler.io
+# Source:        http://github.com/carlhuda/bundler/
+# Documentation: http://gembundler.com
+################################################################################
+gem 'bundler'
+
+################################################################################
+# Name:          rspec
+# Description:   BDD for Ruby
+# Homepage:      http://github.com/rspec
+# Source:        http://github.com/rspec/rspec
+# Documentation: http://relishapp.com/rspec
+################################################################################
+gem 'rspec' # Rspec gem
+
+################################################################################
+# Name:          rails
+# Description:   Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.
+# Homepage:      http://www.rubyonrails.org
+# Source:        http://github.com/rails/rails
+# Documentation: http://api.rubyonrails.org
+################################################################################
 gem 'rails', require: 'rails', branch: 'develop' # With options
   EOL
 end
@@ -55,22 +92,7 @@ module Gemtastic
 
     describe "#to_s" do
       it "Should be correct!" do
-        expect(gemfile.to_s).to eq <<-EOL.chomp
-source 'https://rubygems.org'
-
-## This is a comment and should stay in the file
-# This is another comment
-
-# The bundler gem - my own comment
-# Gemtastic isnt it??! #
-gem 'bundler'
-
-# Gemtastic isnt it??! #
-gem 'rspec'
-
-# Gemtastic isnt it??! #
-gem 'rails', require: 'rails', branch: 'develop' # With options
-        EOL
+        expect(gemfile.to_s).to eq annotated_string
       end
     end
   end
@@ -101,10 +123,7 @@ gem 'rails', require: 'rails', branch: 'develop' # With options
 
     describe "#to_s" do
       it "should be correct" do
-        expect(Gem.from_s(good_string).to_s).to eq <<-EOL.chomp
-# Gemtastic isnt it??! #
-gem 'gemmy', extra: blat
-        EOL
+        expect(Gem.from_s(good_string).to_s).to match /Provides custom thor/
       end
     end
   end
@@ -130,6 +149,36 @@ gem 'gemmy', extra: blat
 
       it "should raise an exception when given a bad string" do
         expect{ Source.from_s bad_string }.to raise_error
+      end
+    end
+  end
+
+  describe Annotation do
+    let(:annotation) { Annotation.new 'bundler' }
+
+    describe "#gem_api_url" do
+      it "should return the proper url" do
+        expect(annotation.gem_api_url).to eq "#{Annotation::API}/bundler.json"
+      end
+    end
+
+    describe "#get" do
+      it "should return a hash object" do
+        expect(annotation.get).to be_an_instance_of Hash
+      end
+    end
+
+    describe "#to_s" do
+      it "should have the proper fields" do
+        expect(annotation.to_s).to eq <<-EOL.chomp
+################################################################################
+# Name:          bundler
+# Description:   Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
+# Homepage:      http://bundler.io
+# Source:        http://github.com/carlhuda/bundler/
+# Documentation: http://gembundler.com
+################################################################################
+        EOL
       end
     end
   end

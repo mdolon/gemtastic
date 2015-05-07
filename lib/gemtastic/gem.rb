@@ -8,13 +8,13 @@ module Gemtastic
     end
 
     def annotate
-      "# Gemtastic isnt it??! #"
+      Annotation.new(gem).to_s
     end
 
     def to_s
       [
         annotate,
-        ["gem '#{gem}'", params].compact.join(",")
+        ["gem '#{gem}'", params].compact.join("")
       ].join("\n")
     end
 
@@ -22,8 +22,10 @@ module Gemtastic
       unless gem_string? string
         raise Exception.new("Bad string passed - not gem format")
       end
-      gem, match, params = string.partition(/(\Z|,)/)
+
+      gem, match, params = string.partition(/(\Z|,| #)/)
       gem = /"([^"]+)"/.match(gem.gsub("'", '"'))[1]
+      params = "#{match}#{params}"
       self.new gem, params
     end
 
