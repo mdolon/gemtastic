@@ -30,7 +30,7 @@ module Gemtastic
     end
 
     def self.gem_string? string
-      !!(string =~ /\Agem/)
+      !!(string =~ /\Agem /)
     end
   end
 end
