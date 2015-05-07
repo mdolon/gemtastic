@@ -23,31 +23,46 @@ source 'https://rubygems.org'
 # This is another comment
 
 # The bundler gem - my own comment
-################################################################################
-# Name:          bundler
-# Description:   Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
-# Homepage:      http://bundler.io
-# Source:        http://github.com/carlhuda/bundler/
-# Documentation: http://gembundler.com
-################################################################################
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
+#~#   bundler:
+#~#
+#~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
+#~#
+#~# Homepage:      http://bundler.io
+#~# Source:        http://github.com/carlhuda/bundler/
+#~# Documentation: http://gembundler.com
+#~#
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
 gem 'bundler'
 
-################################################################################
-# Name:          rspec
-# Description:   BDD for Ruby
-# Homepage:      http://github.com/rspec
-# Source:        http://github.com/rspec/rspec
-# Documentation: http://relishapp.com/rspec
-################################################################################
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
+#~#   rspec:
+#~#
+#~# BDD for Ruby
+#~#
+#~# Homepage:      http://github.com/rspec
+#~# Source:        http://github.com/rspec/rspec
+#~# Documentation: http://relishapp.com/rspec
+#~#
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
 gem 'rspec' # Rspec gem
 
-################################################################################
-# Name:          rails
-# Description:   Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.
-# Homepage:      http://www.rubyonrails.org
-# Source:        http://github.com/rails/rails
-# Documentation: http://api.rubyonrails.org
-################################################################################
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
+#~#   rails:
+#~#
+#~# Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.
+#~#
+#~# Homepage:      http://www.rubyonrails.org
+#~# Source:        http://github.com/rails/rails
+#~# Documentation: http://api.rubyonrails.org
+#~#
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
 gem 'rails', require: 'rails', branch: 'develop' # With options
   EOL
 end
@@ -103,11 +118,11 @@ module Gemtastic
 
     describe ".gem_string?" do
       it "should return true for: gem 'something'" do
-        expect(Gem.gem_string?('gem: "something"')).to be true
+        expect(Gem.gem_string?('gem "something"')).to be true
       end
 
       it 'should return false for: xgem "something"' do
-        expect(Gem.gem_string?('xgem: "something"')).to be false
+        expect(Gem.gem_string?('xgem "something"')).to be false
       end
     end
 
@@ -171,13 +186,18 @@ module Gemtastic
     describe "#to_s" do
       it "should have the proper fields" do
         expect(annotation.to_s).to eq <<-EOL.chomp
-################################################################################
-# Name:          bundler
-# Description:   Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
-# Homepage:      http://bundler.io
-# Source:        http://github.com/carlhuda/bundler/
-# Documentation: http://gembundler.com
-################################################################################
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
+#~#   bundler:
+#~#
+#~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
+#~#
+#~# Homepage:      http://bundler.io
+#~# Source:        http://github.com/carlhuda/bundler/
+#~# Documentation: http://gembundler.com
+#~#
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
         EOL
       end
     end

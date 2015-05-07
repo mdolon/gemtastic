@@ -9,7 +9,9 @@ module Gemtastic
 
     # Return an array of the parsed file content
     def parse_gemfile
-      @original_string.split("\n").map do |row|
+      @original_string.split("\n").reject do |row|
+        Annotation.source_string? row
+      end.map do |row|
         if Gem.gem_string? row
           Gem.from_s row
         elsif Source.source_string? row

@@ -13,13 +13,18 @@ module Gemtastic
 
     def to_s
       <<-EOL.chomp
-################################################################################
-# Name:          #{get['name']}
-# Description:   #{get['info']}
-# Homepage:      #{get['homepage_uri']}
-# Source:        #{get['source_code_uri']}
-# Documentation: #{get['documentation_uri']}
-################################################################################
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
+#~#   #{get['name']}:
+#~#
+#~# #{get['info'].gsub(/\n/, "\n#~#  ")}
+#~#
+#~# Homepage:      #{get['homepage_uri']}
+#~# Source:        #{get['source_code_uri']}
+#~# Documentation: #{get['documentation_uri']}
+#~#
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#
       EOL
     end
 
@@ -33,6 +38,10 @@ module Gemtastic
 
     def gem_api_url
       "#{API}/#{gem}.json"
+    end
+
+    def self.source_string? str
+      /\A#~#/.match str
     end
   end
 end
