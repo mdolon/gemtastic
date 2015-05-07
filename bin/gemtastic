@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'gemtastic'
+puts Gemtastic.ate ARGV[0]
