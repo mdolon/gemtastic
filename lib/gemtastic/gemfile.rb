@@ -19,7 +19,7 @@ module Gemtastic
         else
           row
         end
-      en  d
+      end
     end
 
     def to_s
