@@ -4,6 +4,10 @@ module Gemtastic
   require 'gemtastic/gem'
   require 'gemtastic/gemfile'
   require 'gemtastic/source'
+
+  def self.ate file
+    Gemfile.new(File.read(file))
+  end
 end
 
 #   class
