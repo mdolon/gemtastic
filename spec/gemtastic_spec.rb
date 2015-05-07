@@ -26,6 +26,7 @@ source 'https://rubygems.org'
 #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
 #~#   bundler:
+#~#   -------
 #~#
 #~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
 #~#
@@ -40,6 +41,7 @@ gem 'bundler'
 #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
 #~#   rspec:
+#~#   -----
 #~#
 #~# BDD for Ruby
 #~#
@@ -54,6 +56,7 @@ gem 'rspec' # Rspec gem
 #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
 #~#   rails:
+#~#   -----
 #~#
 #~# Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.
 #~#
@@ -189,6 +192,7 @@ module Gemtastic
 #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
 #~#   bundler:
+#~#   -------
 #~#
 #~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
 #~#

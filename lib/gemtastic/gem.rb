@@ -1,20 +1,21 @@
 module Gemtastic
   class Gem
-    attr_reader :gem, :params
+    attr_reader :gem, :params, :prefix
 
-    def initialize gem, params=nil
+    def initialize gem, prefix=nil, params=nil
       @gem    = gem
+      @prefix = prefix.empty? ? nil : prefix
       @params = params.empty? ? nil : params
     end
 
     def annotate
-      Annotation.new(gem).to_s
+      Annotation.new(gem, prefix).to_s
     end
 
     def to_s
       [
         annotate,
-        ["gem '#{gem}'", params].compact.join("")
+        ["#{prefix}gem '#{gem}'", params].compact.join("")
       ].join("\n")
     end
 
@@ -23,14 +24,14 @@ module Gemtastic
         raise Exception.new("Bad string passed - not gem format")
       end
 
-      gem, match, params = string.partition(/(\Z|,| #)/)
-      gem = /"([^"]+)"/.match(gem.gsub("'", '"'))[1]
-      params = "#{match}#{params}"
-      self.new gem, params
+      matches = /\A(\s*)gem ['"]([^"']+)['"](.*)/.match string
+      prefix, gem, params = matches[1..3]
+
+      self.new gem, prefix, params
     end
 
     def self.gem_string? string
-      !!(string =~ /\Agem /)
+      !!(string =~ /\A\s*gem /)
     end
   end
 end
