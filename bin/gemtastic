@@ -15,9 +15,18 @@ opts = Slop.parse do |o|
     exit
   end
 
+  o.bool '-i', '--in-place', 'Modify the passed file in place'
   o.bool '-c', '--color', 'Colorize the output'
   o.bool '-v', '--verbose', 'Be verbose'
   o.array '--annotations', delimiter: ','
 end
 
-puts Gemtastic.ate(opts)
+annotated = Gemtastic.ate(opts).to_s
+
+if opts['in-place']
+  File.open(opts.arguments.first, 'w') do |file|
+    file.write annotated
+  end
+else
+  puts annotated
+end
