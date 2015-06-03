@@ -23,9 +23,8 @@ source 'https://rubygems.org'
 # This is another comment
 
 # The bundler gem - my own comment
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#
-#~#   bundler:
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#   bundler
 #~#   -------
 #~#
 #~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
@@ -34,13 +33,12 @@ source 'https://rubygems.org'
 #~# Source:        http://github.com/bundler/bundler/
 #~# Documentation: http://bundler.io
 #~#
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
 gem 'bundler'
 
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#
-#~#   rspec:
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#   rspec
 #~#   -----
 #~#
 #~# BDD for Ruby
@@ -49,13 +47,12 @@ gem 'bundler'
 #~# Source:        http://github.com/rspec/rspec
 #~# Documentation: http://relishapp.com/rspec
 #~#
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
 gem 'rspec' # Rspec gem
 
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#
-#~#   rails:
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#   rails
 #~#   -----
 #~#
 #~# Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.
@@ -64,7 +61,7 @@ gem 'rspec' # Rspec gem
 #~# Source:        http://github.com/rails/rails
 #~# Documentation: http://api.rubyonrails.org
 #~#
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
 gem 'rails', require: 'rails', branch: 'develop' # With options
   EOL
@@ -189,9 +186,8 @@ module Gemtastic
     describe "#to_s" do
       it "should have the proper fields" do
         expect(annotation.to_s).to eq <<-EOL.chomp
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#
-#~#   bundler:
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#   bundler
 #~#   -------
 #~#
 #~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
@@ -200,7 +196,7 @@ module Gemtastic
 #~# Source:        http://github.com/bundler/bundler/
 #~# Documentation: http://bundler.io
 #~#
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
         EOL
       end
