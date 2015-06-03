@@ -7,30 +7,13 @@ module Gemtastic
 
     API = 'https://rubygems.org/api/v1/gems/'
 
-    def initialize gem, indent=nil, annotations=nil
+    def initialize gem, indent=nil
       @gem = gem
       @indent = indent
-      @annotations = annotations || {
-        'homepage_uri' => 'Homepage',
-        'source_code_uri' => 'Source',
-        'documentation_uri' => 'Documentation'
-      }
     end
 
-    def to_s
-      <<-EOL.chomp
-#{indent}#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#{indent}#~#
-#{indent}#~#   #{get['name']}:
-#{indent}#~#   #{"-" * get['name'].length}
-#{indent}#~#
-#{indent}#~# #{get['info'].gsub(/\n/, "\n#{indent}#~#  ")}
-#{indent}#~#
-#{annotate}
-#{indent}#~#
-#{indent}#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#{indent}#~#
-      EOL
+    def to_s formatter=AnnotationFormatter
+      formatter.new(self).to_s
     end
 
     def get
@@ -47,13 +30,7 @@ module Gemtastic
     end
 
     def self.source_string? str
-      /\A#~#/.match str
-    end
-
-    def annotate
-      annotations.each_pair.map { |uri, header|
-        "#{indent}#~# #{'%-14s' % (header<<':')} #{get[uri]}"
-      }.join("\n")
+      /\A\s*#~#/.match str
     end
   end
 end

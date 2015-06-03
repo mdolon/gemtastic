@@ -1,4 +1,23 @@
 #!/usr/bin/env ruby
 
+# require 'pry'
+
+require 'slop'
 require 'gemtastic'
-puts Gemtastic.ate ARGV[0]
+
+opts = Slop.parse do |o|
+  o.on '-V', '--version', 'print the version' do
+    puts Gemtastic::VERSION
+  end
+
+  o.on '-h', '--help' do
+    puts o
+    exit
+  end
+
+  o.bool '-c', '--color', 'Colorize the output'
+  o.bool '-v', '--verbose', 'Be verbose'
+  o.array '--annotations', delimiter: ','
+end
+
+puts Gemtastic.ate(opts)
