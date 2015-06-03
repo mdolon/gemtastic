@@ -30,7 +30,7 @@ module Gemtastic
     end
 
     def self.source_string? str
-      /\A#~#/.match str
+      /\A\s*#~#/.match str
     end
   end
 end
