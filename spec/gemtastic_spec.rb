@@ -31,8 +31,8 @@ source 'https://rubygems.org'
 #~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
 #~#
 #~# Homepage:      http://bundler.io
-#~# Source:        http://github.com/carlhuda/bundler/
-#~# Documentation: http://gembundler.com
+#~# Source:        http://github.com/bundler/bundler/
+#~# Documentation: http://bundler.io
 #~#
 #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
@@ -197,8 +197,8 @@ module Gemtastic
 #~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
 #~#
 #~# Homepage:      http://bundler.io
-#~# Source:        http://github.com/carlhuda/bundler/
-#~# Documentation: http://gembundler.com
+#~# Source:        http://github.com/bundler/bundler/
+#~# Documentation: http://bundler.io
 #~#
 #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
 #~#
