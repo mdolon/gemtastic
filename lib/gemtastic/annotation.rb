@@ -7,14 +7,13 @@ module Gemtastic
 
     API = 'https://rubygems.org/api/v1/gems/'
 
-    def initialize gem, indent=nil, formatter=Gemtastic::AnnotationFormatter
+    def initialize gem, indent=nil
       @gem = gem
       @indent = indent
-      @formatter = formatter.new(self)
     end
 
-    def to_s
-      @formatter.to_s
+    def to_s formatter=AnnotationFormatter
+      formatter.new(self).to_s
     end
 
     def get

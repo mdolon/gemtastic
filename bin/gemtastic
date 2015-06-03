@@ -20,6 +20,4 @@ opts = Slop.parse do |o|
   o.array '--annotations', delimiter: ','
 end
 
-annotated = Gemtastic.ate opts.arguments.first
-puts annotated
-
+puts Gemtastic.ate(opts)

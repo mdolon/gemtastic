@@ -8,7 +8,10 @@ module Gemtastic
   require 'gemtastic/formatters/annotation_formatter.rb'
   require 'gemtastic/formatters/colorized_annotation_formatter.rb'
 
-  def self.ate file
-    Gemfile.new(File.read(file))
+  def self.ate opts
+    formatter = opts[:color] ? Gemtastic::ColorizedAnnotationFormatter
+              :                Gemtastic::AnnotationFormatter
+
+    Gemfile.new File.read(opts.arguments.first)
   end
 end
