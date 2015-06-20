@@ -12,8 +12,8 @@ module Gemtastic
       @indent = indent
     end
 
-    def to_s formatter=AnnotationFormatter
-      formatter.new(self).to_s
+    def to_s
+      FORMATTER.new(self).to_s
     end
 
     def get

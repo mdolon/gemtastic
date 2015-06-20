@@ -75,11 +75,11 @@ module Gemtastic
   end
 
   describe Gemfile do
-    let(:gemfile) { Gemfile.new gemfile_string }
+    let(:gemfile) { Gemfile.new gemfile_string, AnnotationFormatter }
 
     describe "#initialize" do
       it "should take a Gemfile content string to initialize" do
-        expect(Gemfile.new(gemfile_string)).to be_an_instance_of Gemfile
+        expect(Gemfile.new(gemfile_string, AnnotationFormatter)).to be_an_instance_of Gemfile
       end
     end
 

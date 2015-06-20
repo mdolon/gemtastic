@@ -2,9 +2,12 @@ module Gemtastic
   class Gemfile
     attr_reader :content
 
-    def initialize gemfile_string
+    def initialize gemfile_string, formatter
       @original_string  = gemfile_string
       @content          = parse_gemfile
+
+      Gemtastic.const_set('FORMATTER', formatter)
+        unless defined? Gemtastic::FORMATTER
     end
 
     # Return an array of the parsed file content

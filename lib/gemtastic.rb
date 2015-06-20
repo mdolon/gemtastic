@@ -12,6 +12,6 @@ module Gemtastic
     formatter = opts[:color] ? Gemtastic::ColorizedAnnotationFormatter
               :                Gemtastic::AnnotationFormatter
 
-    Gemfile.new File.read(opts.arguments.first)
+    Gemfile.new File.read(opts.arguments.first), formatter
   end
 end
