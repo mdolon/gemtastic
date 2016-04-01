@@ -6,8 +6,7 @@ module Gemtastic
       @original_string  = gemfile_string
       @content          = parse_gemfile
 
-      Gemtastic.const_set('FORMATTER', formatter)
-        unless defined? Gemtastic::FORMATTER
+      Gemtastic.const_set('FORMATTER', formatter) unless defined? Gemtastic::FORMATTER
     end
 
     # Return an array of the parsed file content
