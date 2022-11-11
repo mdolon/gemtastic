@@ -1,11 +1,5 @@
 module Gemtastic
   class AnnotationFormatter
-    private
-
-    attr_reader :annotation, :annotations
-
-    public
-
     def initialize annotation, annotations = nil
       @annotation = annotation
       @annotations = annotations || {
@@ -20,6 +14,8 @@ module Gemtastic
     end
 
     private
+
+    attr_reader :annotation, :annotations
 
     def to_s_lines
       [
@@ -57,13 +53,13 @@ module Gemtastic
     end
 
     def annotate
-      @annotations.each_pair.map { |uri, header|
+      annotations.each_pair.map { |uri, header|
         "#{spacer} #{"%-14s" % (header << ":")} #{annotation.get[uri]}"
       }
     end
 
     def indent
-      @annotation.indent
+      annotation.indent
     end
   end
 end

@@ -7,7 +7,7 @@ module Gemtastic
 
     API = "https://rubygems.org/api/v1/gems/"
 
-    def initialize gem, indent = nil
+    def initialize(gem, indent = nil)
       @gem = gem
       @indent = indent
     end
@@ -17,20 +17,16 @@ module Gemtastic
     end
 
     def get
-      return @gem_info if @gem_info
-      @gem_info = JSON.parse(
-        Net::HTTP.get(
-          URI.parse(gem_api_url)
-        )
-      )
+      gem_details_uri = "#{API}/#{gem}.json"
+      @gem_info = URI.parse(gem_details_uri).then do |uri|
+        Net::HTTP.get(uri).then do |response|
+          JSON.parse(response)
+        end
+      end
     end
 
-    def gem_api_url
-      "#{API}/#{gem}.json"
-    end
-
-    def self.source_string? str
-      /\A\s*#~#/.match str
+    def self.source_string?(str)
+      /\A\s*#~#/.match(str)
     end
   end
 end

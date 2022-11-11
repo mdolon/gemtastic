@@ -2,7 +2,7 @@ module Gemtastic
   class Gem
     attr_reader :gem, :params, :prefix
 
-    def initialize gem, prefix = nil, params = nil
+    def initialize(gem, prefix = nil, params = nil)
       @gem = gem
       @prefix = prefix.empty? ? nil : prefix
       @params = params.empty? ? nil : params
@@ -27,10 +27,10 @@ module Gemtastic
       matches = /\A(\s*)gem ['"]([^"']+)['"](.*)/.match string
       prefix, gem, params = matches[1..3]
 
-      new gem, prefix, params
+      new(gem, prefix, params)
     end
 
-    def self.gem_string? string
+    def self.gem_string?(string)
       !!(string =~ /\A\s*gem /)
     end
   end

@@ -2,7 +2,7 @@ module Gemtastic
   class Gemfile
     attr_reader :content
 
-    def initialize gemfile_string, formatter
+    def initialize(gemfile_string, formatter)
       @original_string = gemfile_string
       @content = parse_gemfile
 

@@ -133,7 +133,7 @@ module Gemtastic
       end
 
       it "should raise an exception when given a bad string" do
-        expect { Gem.from_s bad_string }.to raise_error
+        expect { Gem.from_s bad_string }.to raise_error(StandardError, "Bad string passed - not gem format")
       end
     end
 
@@ -164,7 +164,7 @@ module Gemtastic
       end
 
       it "should raise an exception when given a bad string" do
-        expect { Source.from_s(bad_string) }.to raise_error
+        expect { Source.from_s(bad_string) }.to raise_error(StandardError, "Bad string passed - not source format")
       end
     end
   end
