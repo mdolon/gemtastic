@@ -1,13 +1,13 @@
-require 'net/http'
-require 'json'
+require "net/http"
+require "json"
 
 module Gemtastic
   class Annotation
     attr_reader :gem, :indent, :annotations
 
-    API = 'https://rubygems.org/api/v1/gems/'
+    API = "https://rubygems.org/api/v1/gems/"
 
-    def initialize gem, indent=nil
+    def initialize gem, indent = nil
       @gem = gem
       @indent = indent
     end

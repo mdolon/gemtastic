@@ -1,1 +1,1 @@
-require 'gemtastic'
+require "gemtastic"

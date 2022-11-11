@@ -12,14 +12,14 @@ module Gemtastic
 
     def self.from_s string
       unless source_string? string
-        raise Exception.new("Bad string passed - not source format")
+        raise StandardError.new("Bad string passed - not source format")
       end
-      source = /"([^"]+)"/.match(string.gsub("'", '"'))[1]
-      self.new source
+      source = /"([^"]+)"/.match(string.tr("'", '"'))[1]
+      new source
     end
 
     def self.source_string? string
-      !!(string =~ /\Asource/)
+      !!string.start_with?("source")
     end
   end
 end

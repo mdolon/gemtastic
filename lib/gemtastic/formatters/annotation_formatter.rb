@@ -1,15 +1,17 @@
 module Gemtastic
   class AnnotationFormatter
     private
+
     attr_reader :annotation, :annotations
 
     public
-    def initialize annotation, annotations=nil
-      @annotation   = annotation
-      @annotations  = annotations || {
-        'homepage_uri'      => 'Homepage',
-        'source_code_uri'   => 'Source',
-        'documentation_uri' => 'Documentation'
+
+    def initialize annotation, annotations = nil
+      @annotation = annotation
+      @annotations = annotations || {
+        "homepage_uri" => "Homepage",
+        "source_code_uri" => "Source",
+        "documentation_uri" => "Documentation"
       }
     end
 
@@ -43,26 +45,25 @@ module Gemtastic
     end
 
     def description
-      "#{spacer} #{annotation.get['info'].gsub(/\n/, "\n#{indent}#{spacer} ")}"
+      "#{spacer} #{annotation.get["info"].gsub(/\n/, "\n#{indent}#{spacer} ")}"
     end
 
     def name
-      "#{spacer}   #{annotation.get['name']}"
+      "#{spacer}   #{annotation.get["name"]}"
     end
 
     def underline
-      "#{spacer}   " + ('-' * annotation.get['name'].length)
+      "#{spacer}   " + ("-" * annotation.get["name"].length)
     end
 
     def annotate
       @annotations.each_pair.map { |uri, header|
-        "#{spacer} #{'%-14s' % (header<<':')} #{annotation.get[uri]}"
+        "#{spacer} #{"%-14s" % (header << ":")} #{annotation.get[uri]}"
       }
     end
 
     def indent
       @annotation.indent
     end
-
   end
 end

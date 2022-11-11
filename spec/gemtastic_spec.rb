@@ -1,76 +1,77 @@
-require 'spec_helper'
+require "spec_helper"
+
 def gemfile_string
-  <<-EOL.chomp
-source 'https://rubygems.org'
+  <<~EOL.chomp
+    source 'https://rubygems.org'
 
-## This is a comment and should stay in the file
-# This is another comment
+    ## This is a comment and should stay in the file
+    # This is another comment
 
-# The bundler gem - my own comment
-gem 'bundler'
+    # The bundler gem - my own comment
+    gem 'bundler'
 
-gem 'rspec' # Rspec gem
+    gem 'rspec' # Rspec gem
 
-gem 'rails', require: 'rails', branch: 'develop' # With options
+    gem 'rails', require: 'rails', branch: 'develop' # With options
   EOL
 end
 
 def annotated_string
-  <<-EOL.chomp
-source 'https://rubygems.org'
+  <<~EOL.chomp
+    source 'https://rubygems.org'
 
-## This is a comment and should stay in the file
-# This is another comment
+    ## This is a comment and should stay in the file
+    # This is another comment
 
-# The bundler gem - my own comment
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#   bundler
-#~#   -------
-#~#
-#~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
-#~#
-#~# Homepage:      http://bundler.io
-#~# Source:        http://github.com/bundler/bundler/
-#~# Documentation: http://bundler.io
-#~#
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#
-gem 'bundler'
+    # The bundler gem - my own comment
+    #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+    #~#   bundler
+    #~#   -------
+    #~#
+    #~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
+    #~#
+    #~# Homepage:      http://bundler.io
+    #~# Source:        http://github.com/bundler/bundler/
+    #~# Documentation: http://bundler.io
+    #~#
+    #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+    #~#
+    gem 'bundler'
 
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#   rspec
-#~#   -----
-#~#
-#~# BDD for Ruby
-#~#
-#~# Homepage:      http://github.com/rspec
-#~# Source:        http://github.com/rspec/rspec
-#~# Documentation: http://relishapp.com/rspec
-#~#
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#
-gem 'rspec' # Rspec gem
+    #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+    #~#   rspec
+    #~#   -----
+    #~#
+    #~# BDD for Ruby
+    #~#
+    #~# Homepage:      http://github.com/rspec
+    #~# Source:        http://github.com/rspec/rspec
+    #~# Documentation: http://relishapp.com/rspec
+    #~#
+    #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+    #~#
+    gem 'rspec' # Rspec gem
 
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#   rails
-#~#   -----
-#~#
-#~# Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.
-#~#
-#~# Homepage:      http://www.rubyonrails.org
-#~# Source:        http://github.com/rails/rails
-#~# Documentation: http://api.rubyonrails.org
-#~#
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#
-gem 'rails', require: 'rails', branch: 'develop' # With options
+    #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+    #~#   rails
+    #~#   -----
+    #~#
+    #~# Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.
+    #~#
+    #~# Homepage:      http://www.rubyonrails.org
+    #~# Source:        http://github.com/rails/rails
+    #~# Documentation: http://api.rubyonrails.org
+    #~#
+    #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+    #~#
+    gem 'rails', require: 'rails', branch: 'develop' # With options
   EOL
 end
 
 module Gemtastic
   describe VERSION do
     it "Should be a string with format x.x.x" do
-      expect(VERSION).to match /\d+\.\d+\.\d+/
+      expect(VERSION).to match(/\d+\.\d+\.\d+/)
     end
   end
 
@@ -114,7 +115,7 @@ module Gemtastic
 
   describe Gem do
     let(:good_string) { "gem 'gemmy', extra: blat" }
-    let(:bad_string)  { "xgem 'gemmy', extra: blat" }
+    let(:bad_string) { "xgem 'gemmy', extra: blat" }
 
     describe ".gem_string?" do
       it "should return true for: gem 'something'" do
@@ -128,17 +129,17 @@ module Gemtastic
 
     describe ".from_s" do
       it "should return a new Gem when given a good string" do
-        expect(Gem.from_s good_string).to be_a Gem
+        expect(Gem.from_s(good_string)).to be_a Gem
       end
 
       it "should raise an exception when given a bad string" do
-        expect{ Gem.from_s bad_string }.to raise_error
+        expect { Gem.from_s bad_string }.to raise_error
       end
     end
 
     describe "#to_s" do
       it "should be correct" do
-        expect(Gem.from_s(good_string).to_s).to match /Provides custom thor/
+        expect(Gem.from_s(good_string).to_s).to match(/Provides custom thor/)
       end
     end
   end
@@ -156,20 +157,20 @@ module Gemtastic
 
     describe ".from_s" do
       let(:good_string) { "source 'gemmy'" }
-      let(:bad_string)  { "xsource 'gemmy'" }
+      let(:bad_string) { "xsource 'gemmy'" }
 
       it "should return a new Source when given a good string" do
-        expect(Source.from_s good_string).to be_a Source
+        expect(Source.from_s(good_string)).to be_a Source
       end
 
       it "should raise an exception when given a bad string" do
-        expect{ Source.from_s bad_string }.to raise_error
+        expect { Source.from_s(bad_string) }.to raise_error
       end
     end
   end
 
   describe Annotation do
-    let(:annotation) { Annotation.new 'bundler' }
+    let(:annotation) { Annotation.new("bundler") }
 
     describe "#gem_api_url" do
       it "should return the proper url" do
@@ -185,43 +186,21 @@ module Gemtastic
 
     describe "#to_s" do
       it "should have the proper fields" do
-        expect(annotation.to_s).to eq <<-EOL.chomp
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#   bundler
-#~#   -------
-#~#
-#~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
-#~#
-#~# Homepage:      http://bundler.io
-#~# Source:        http://github.com/bundler/bundler/
-#~# Documentation: http://bundler.io
-#~#
-#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
-#~#
+        expect(annotation.to_s).to eq <<~EOL.chomp
+          #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+          #~#   bundler
+          #~#   -------
+          #~#
+          #~# Bundler manages an application's dependencies through its entire life, across many machines, systematically and repeatably
+          #~#
+          #~# Homepage:      http://bundler.io
+          #~# Source:        http://github.com/bundler/bundler/
+          #~# Documentation: http://bundler.io
+          #~#
+          #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~
+          #~#
         EOL
       end
     end
   end
 end
-  # let(:gemfile) { gemfile_string }
-  # subject { Gemtastic.new(gemfile) }
-
-  # describe '#process' do
-  #   let(:input) { "source 'https://rubygems.org'\ngemspec" }
-  #   let(:output) { ["source 'https://rubygems.org'", "gemspec"] }
-
-  #   it 'stick gemfile into array' do
-  #     expect(output.downcase).to eq output
-  #   end
-
-  #   # it 'combines nouns with doge adjectives' do
-  #   #   expect(output).to match /so grandmom\./i
-  #   #   expect(output).to match /such sweater\./i
-  #   #   expect(output).to match /very christmas\./i
-  #   # end
-
-  #   # it 'always appends "wow."' do
-  #   #   expect(output).to end_with 'wow.'
-  #   # end
-  # end
-# end

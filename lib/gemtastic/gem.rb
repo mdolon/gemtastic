@@ -2,8 +2,8 @@ module Gemtastic
   class Gem
     attr_reader :gem, :params, :prefix
 
-    def initialize gem, prefix=nil, params=nil
-      @gem    = gem
+    def initialize gem, prefix = nil, params = nil
+      @gem = gem
       @prefix = prefix.empty? ? nil : prefix
       @params = params.empty? ? nil : params
     end
@@ -21,13 +21,13 @@ module Gemtastic
 
     def self.from_s string
       unless gem_string? string
-        raise Exception.new("Bad string passed - not gem format")
+        raise StandardError.new("Bad string passed - not gem format")
       end
 
       matches = /\A(\s*)gem ['"]([^"']+)['"](.*)/.match string
       prefix, gem, params = matches[1..3]
 
-      self.new gem, prefix, params
+      new gem, prefix, params
     end
 
     def self.gem_string? string
